@@ -10,23 +10,28 @@ let links = [
     },
     {
         id: 'link-1',
+        url: 'www.santosfc.com.br',
+        description: 'The biggest brazilian in the world'
+    },
+    {
+        id: 'link-2',
         url: 'www.howtoreactnative.com',
         description: 'Fullstack tutorial for React Native'
     }
-]
+];
 
 let idCount = links.length;
 
 const resolvers = {
     Query: {
-        info: () => `This is the API of a Hackernews Clone`,
-        feed: () => links,
+        info: () => 'This is the API of a Hackernews Clone',
+        feed: () => links,        
         link: (parent, { id }) => {
             for (let i = 0; i < links.length; i++) {
                 if (links[i].id == id)
                     return links[i];
             }
-            return null;
+            return null;        
         }
     },
     Mutation: {
